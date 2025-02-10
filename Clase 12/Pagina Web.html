@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ESP32 Web Server</title>
+        <style>
+            body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; }
+            .container { width: 80%%; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px #ccc; }
+            h1 { color: #333; }
+            img { width: 300px; height: auto; }
+            .section { margin-bottom: 20px; padding: 15px; background: #e8e8e8; border-radius: 5px; }
+            .button { padding: 10px 20px; margin: 5px; font-size: 16px; border: none; cursor: pointer; border-radius: 5px; }
+            .open { background: green; color: white; }
+            .close { background: red; color: white; }
+            .on { background: blue; color: white; }
+            .off { background: gray; color: white; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Caneca de basura inteligente</h1>
+
+            <div class="section">
+                <h2>Introducción</h2>
+                <img src="https://github.com/JuanDomM/Juanchosky08/blob/main/fotomontaje.jpeg?raw=true" alt="Imagen del Proyecto">
+                <p>En la actualidad hay un problema mundial con los desechos para ello una buena opción para tener en nuestra casa son las canecas inteligentes, diseñadas para optimizar la gestión de residuos mediante tecnologías como sensores, conectividad IoT y automatización.
+En concreto esta caneca tiene la funcionalidad de detectar los objetos cercanos a ella mediante un sensor ultrasónico, y así poder abrir y cerrar la tapa cuando se detecte el objeto. Además, desde la interfaz web se puede manipular la tapa de esta caneca, con la funcionalidad de desactivar el monitoreo del sensor o abrir y cerrar la tapa mediante botones. 
+</p>
+            </div>
+
+            <div class="section">
+                <h2>Descripción</h2>
+                <p>Todavía no se ha generado la cultura de el reciclaje, las personas desechan los objetos en cualquier parte sin saber a que tipo de residuo pertenece. 
+Para esto una buena opción seria que las propias canecas de basura se encargaran de ello, o que pueda de alguna manera detectar el objeto y indicarle al sujeto en que parte debe ir, esto sería una solución a futuro para poder reducir la mala separación de desechos. 
+</p>
+            </div>
+
+            <div class="section">
+                <h2>Objetivos</h2>
+                <p> El objetivo de este proyecto es diseñar una caneca inteligente que mediante un sensor detecte que tan cerca esta el residuo y pueda abrir y cerrar la tapa para su desecho, además de poder controlar remotamente en que momento se desea detectar el residuo o directamente abrir la tapa.  En un futuro se rediseñará esta caneca para que pueda detectar el tipo de residuo y así que se pueda poner en el lugar indicado.</p>
+                <ul>
+                    <li>Medir distancias con el sensor ultrasónico.</li>
+                    <li>Activar el servomotor cuando un objeto esté cerca.</li>
+                    <li>Permitir control manual desde una interfaz web.</li>
+                </ul>
+            </div>
+
+
+            <div class="section">
+                <h2>Control de la tapa</h2>
+                <a href="/angle?value=0"><button class="button close">Cerrar </button></a>
+                <a href="/angle?value=140"><button class="button open">Abrir </button></a>
+            </div>
+
+            <div class="section">
+                <h2>Control de detección automática  </h2>
+                <a href="/monitor?state=on"><button class="button on">Activar Sensor</button></a>
+                <a href="/monitor?state=off"><button class="button off">Desactivar Sensor</button></a>
+            </div>
+        </div>
+    </body>
+    </html>
