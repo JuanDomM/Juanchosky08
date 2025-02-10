@@ -105,7 +105,7 @@ def web_page():
 
             <div class="section">
                 <h2>Introducción</h2>
-                <img src="https://cloud.educaplay.com/recursos/346/11089790/image61b921c226abb.png" alt="Imagen del Proyecto">
+                <img src="https://github.com/JuanDomM/Juanchosky08/blob/main/fotomontaje.jpeg?raw=true" alt="Imagen del Proyecto">
                 <p>En la actualidad hay un problema mundial con los desechos para ello una buena opción para tener en nuestra casa son las canecas inteligentes, diseñadas para optimizar la gestión de residuos mediante tecnologías como sensores, conectividad IoT y automatización.
 En concreto esta caneca tiene la funcionalidad de detectar los objetos cercanos a ella mediante un sensor ultrasónico, y así poder abrir y cerrar la tapa cuando se detecte el objeto. Además, desde la interfaz web se puede manipular la tapa de esta caneca, con la funcionalidad de desactivar el monitoreo del sensor o abrir y cerrar la tapa mediante botones. 
 </p>
