@@ -70,7 +70,7 @@ def sensor_loop():
         if active_monitoring:
             distance = get_distance()
             if distance <= 20:
-                set_servo(90)
+                set_servo(140)
             else:
                 set_servo(0)
         time.sleep(5)  # Medición cada 5 segundos
@@ -101,22 +101,26 @@ def web_page():
     </head>
     <body>
         <div class="container">
-            <h1>Control de Servomotor y Sensor Ultrasónico</h1>
+            <h1>Caneca de basura inteligente</h1>
 
             <div class="section">
                 <h2>Introducción</h2>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Arduino_and_Breadboard_With_Ultrasonic_Sensor.jpg/640px-Arduino_and_Breadboard_With_Ultrasonic_Sensor.jpg" alt="Imagen del Proyecto">
-                <p>Este sistema permite controlar un servomotor basado en la detección de objetos con un sensor ultrasónico.</p>
+                <img src="https://cloud.educaplay.com/recursos/346/11089790/image61b921c226abb.png" alt="Imagen del Proyecto">
+                <p>En la actualidad hay un problema mundial con los desechos para ello una buena opción para tener en nuestra casa son las canecas inteligentes, diseñadas para optimizar la gestión de residuos mediante tecnologías como sensores, conectividad IoT y automatización.
+En concreto esta caneca tiene la funcionalidad de detectar los objetos cercanos a ella mediante un sensor ultrasónico, y así poder abrir y cerrar la tapa cuando se detecte el objeto. Además, desde la interfaz web se puede manipular la tapa de esta caneca, con la funcionalidad de desactivar el monitoreo del sensor o abrir y cerrar la tapa mediante botones. 
+</p>
             </div>
 
             <div class="section">
                 <h2>Descripción</h2>
-                <p>El proyecto utiliza un ESP32 para manejar un servomotor según la distancia medida por un sensor ultrasónico. 
-                   Si un objeto está a menos de 20 cm, el servo se mueve a 90°. Si no hay objeto, el servo vuelve a 0°.</p>
+                <p>Todavía no se ha generado la cultura de el reciclaje, las personas desechan los objetos en cualquier parte sin saber a que tipo de residuo pertenece. 
+Para esto una buena opción seria que las propias canecas de basura se encargaran de ello, o que pueda de alguna manera detectar el objeto y indicarle al sujeto en que parte debe ir, esto sería una solución a futuro para poder reducir la mala separación de desechos. 
+</p>
             </div>
 
             <div class="section">
                 <h2>Objetivos</h2>
+                <p> El objetivo de este proyecto es diseñar una caneca inteligente que mediante un sensor detecte que tan cerca esta el residuo y pueda abrir y cerrar la tapa para su desecho, además de poder controlar remotamente en que momento se desea detectar el residuo o directamente abrir la tapa.  En un futuro se rediseñará esta caneca para que pueda detectar el tipo de residuo y así que se pueda poner en el lugar indicado.</p>
                 <ul>
                     <li>Medir distancias con el sensor ultrasónico.</li>
                     <li>Activar el servomotor cuando un objeto esté cerca.</li>
@@ -125,13 +129,13 @@ def web_page():
             </div>
 
             <div class="section">
-                <h2>Control del Servomotor</h2>
-                <a href="/angle?value=0"><button class="button close">Cerrar (0°)</button></a>
-                <a href="/angle?value=90"><button class="button open">Abrir (90°)</button></a>
+                <h2>Control de la tapa</h2>
+                <a href="/angle?value=0"><button class="button close">Cerrar </button></a>
+                <a href="/angle?value=140"><button class="button open">Abrir </button></a>
             </div>
 
             <div class="section">
-                <h2>Control del Sensor Ultrasónico</h2>
+                <h2>Control de detección automática  </h2>
                 <a href="/monitor?state=on"><button class="button on">Activar Sensor</button></a>
                 <a href="/monitor?state=off"><button class="button off">Desactivar Sensor</button></a>
             </div>
@@ -157,7 +161,7 @@ while True:
         if '/angle?value=' in request:
             try:
                 angle = int(request.split('/angle?value=')[1].split()[0])
-                angle = max(0, min(90, angle))  # Limitar el ángulo entre 0 y 90 grados
+                angle = max(0, min(180, angle))  # Limitar el ángulo entre 0 y 180 grados
                 set_servo(angle)
             except ValueError:
                 print("Valor inválido recibido")
